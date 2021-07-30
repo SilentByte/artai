@@ -23,6 +23,8 @@ onready var offset_y_slider = $Controls/VBox/OffsetYSlider
 onready var color_picker = $Controls/VBox/ColorPicker
 
 func _ready() -> void:
+    Globals.load_config()
+
     color_picker.color = Globals.background_color
     aperture_slider.value = Globals.aperture
     zoom_slider.value = Globals.zoom
@@ -58,3 +60,6 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
     if Input.is_action_just_pressed("ui_toggle_controls"):
         Globals.controls_visible = not Globals.controls_visible
+
+func _on_save() -> void:
+    Globals.save_config()

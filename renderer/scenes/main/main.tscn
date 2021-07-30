@@ -12,6 +12,8 @@ position = Vector2( 960, 540 )
 
 [node name="Controls" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0.941176 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 1500.0
 margin_right = 1920.0
 margin_bottom = 1080.0
@@ -144,3 +146,11 @@ __meta__ = {
 margin_top = 489.0
 margin_right = 399.0
 margin_bottom = 518.0
+
+[node name="SaveButton" type="Button" parent="Controls/VBox"]
+margin_top = 525.0
+margin_right = 399.0
+margin_bottom = 554.0
+text = "SAVE"
+
+[connection signal="pressed" from="Controls/VBox/SaveButton" to="." method="_on_save"]

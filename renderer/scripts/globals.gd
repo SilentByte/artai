@@ -1,5 +1,7 @@
 extends Node
 
+const CONFIG_FILE_NAME = ".artai_config"
+
 var controls_visible = true
 var background_color = Color.black
 var fish_eye = true
@@ -7,3 +9,45 @@ var clip = true
 var aperture = 180.0
 var zoom = 1.0
 var rotation = 0.0
+
+func save_config() -> void:
+    var config = {
+        "controls_visible": controls_visible,
+        "background_color": background_color,
+        "fish_eye": fish_eye,
+        "clip": clip,
+        "aperture": aperture,
+        "zoom": zoom,
+        "rotation": rotation,
+    }
+
+    var file = File.new()
+    file.open(CONFIG_FILE_NAME, File.WRITE)
+    file.store_var(config)
+    file.close()
+
+func load_config() -> void:
+    var default_config = {
+        "controls_visible": true,
+        "background_color": Color.black,
+        "fish_eye": true,
+        "clip": true,
+        "aperture": 180,
+        "zoom": 1.0,
+        "rotation": 0.0,
+    }
+
+    var config = {}
+    var file = File.new()
+    if file.file_exists(CONFIG_FILE_NAME):
+        file.open(CONFIG_FILE_NAME, File.READ)
+        config = file.get_var()
+        file.close()
+
+    controls_visible = config.get("controls_visible", default_config["controls_visible"])
+    background_color = config.get("background_color", default_config["background_color"])
+    fish_eye = config.get("fish_eye", default_config["fish_eye"])
+    clip = config.get("clip", default_config["clip"])
+    aperture = config.get("aperture", default_config["aperture"])
+    zoom = config.get("zoom", default_config["zoom"])
+    rotation = config.get("rotation", default_config["rotation"])
