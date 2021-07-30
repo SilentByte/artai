@@ -17,13 +17,19 @@ onready var zoom_slider = $Controls/VBox/ZoomSlider
 onready var offset_x_slider = $Controls/VBox/OffsetXSlider
 onready var offset_y_slider = $Controls/VBox/OffsetYSlider
 
+onready var color_picker = $Controls/VBox/ColorPicker
+
 func _ready() -> void:
+    color_picker.color = Globals.background_color
     aperture_slider.value = Globals.aperture
     zoom_slider.value = Globals.zoom
     clip_switch.pressed = Globals.clip
 
 func _process(delta: float) -> void:
     controls_container.visible = Globals.controls_visible
+
+    Globals.background_color = color_picker.color
+    VisualServer.set_default_clear_color(Globals.background_color)
 
     fps_label.text = '%s FPS' % Engine.get_frames_per_second()
 

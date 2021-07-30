@@ -64,7 +64,9 @@ __meta__ = {
 margin_top = 170.0
 margin_right = 399.0
 margin_bottom = 198.0
-max_value = 360.0
+min_value = 0.1
+max_value = 180.0
+value = 0.1
 
 [node name="ZoomLabel" type="Label" parent="Controls/VBox"]
 margin_top = 205.0
@@ -120,3 +122,8 @@ step = 0.01
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ColorPicker" type="ColorPickerButton" parent="Controls/VBox"]
+margin_top = 418.0
+margin_right = 399.0
+margin_bottom = 447.0
