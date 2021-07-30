@@ -1,5 +1,6 @@
 extends Node
 
+var controls_visible = true
 var fish_eye = true
 var clip = true
 var aperture = 180
