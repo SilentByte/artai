@@ -24,11 +24,17 @@ onready var color_picker = $Controls/VBox/ColorPicker
 
 func _ready() -> void:
     Globals.load_config()
+    _reset()
 
-    color_picker.color = Globals.background_color
+func _reset() -> void:
+    fish_eye_switch.pressed = Globals.fish_eye
+    clip_switch.pressed = Globals.clip
     aperture_slider.value = Globals.aperture
     zoom_slider.value = Globals.zoom
-    clip_switch.pressed = Globals.clip
+    rotation_slider.value = Globals.rotation
+    offset_x_slider.value = Globals.offset_x
+    offset_y_slider.value = Globals.offset_y
+    color_picker.color = Globals.background_color
 
 func _process(delta: float) -> void:
     controls_container.visible = Globals.controls_visible
@@ -46,15 +52,17 @@ func _process(delta: float) -> void:
 
     zoom_label.text = 'Zoom (%s)' % zoom_slider.value
     Globals.zoom = zoom_slider.value
+    artai.scale = Vector2(Globals.zoom, Globals.zoom)
+
+    Globals.offset_x = offset_x_slider.value
+    Globals.offset_y = offset_y_slider.value
+    artai.position = Vector2(
+        Globals.offset_x * 1920 + 1920 / 2,
+        Globals.offset_y * 1080 + 1080 / 2
+    )
 
     rotation_label.text = 'Rotation (%s)' % rotation_slider.value
     Globals.rotation = rotation_slider.value
-
-    artai.scale = Vector2(Globals.zoom, Globals.zoom)
-    artai.position = Vector2(
-        offset_x_slider.value * 1920 + 1920 / 2,
-        offset_y_slider.value * 1080 + 1080 / 2
-    )
     artai.rotation = deg2rad(Globals.rotation)
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -66,6 +74,11 @@ func _unhandled_input(event: InputEvent) -> void:
         Globals.controls_visible = not Globals.controls_visible
         return
 
-
 func _on_save() -> void:
     Globals.save_config()
+
+func _on_reset() -> void:
+    Globals.reset_config()
+    Globals.save_config()
+
+    _reset()

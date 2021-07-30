@@ -142,15 +142,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorPicker" type="ColorPickerButton" parent="Controls/VBox"]
+[node name="ColorLabel" type="Label" parent="Controls/VBox"]
 margin_top = 489.0
 margin_right = 399.0
 margin_bottom = 518.0
+text = "Background"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="SaveButton" type="Button" parent="Controls/VBox"]
+[node name="ColorPicker" type="ColorPickerButton" parent="Controls/VBox"]
 margin_top = 525.0
 margin_right = 399.0
-margin_bottom = 554.0
+margin_bottom = 585.0
+rect_min_size = Vector2( 0, 60 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls/VBox"]
+margin_top = 592.0
+margin_right = 399.0
+margin_bottom = 652.0
+rect_min_size = Vector2( 0, 60 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="Button" parent="Controls/VBox/HBoxContainer"]
+margin_right = 292.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
 text = "SAVE"
 
-[connection signal="pressed" from="Controls/VBox/SaveButton" to="." method="_on_save"]
+[node name="ResetButton" type="Button" parent="Controls/VBox/HBoxContainer"]
+margin_left = 299.0
+margin_right = 399.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 0 )
+text = "RESET"
+
+[connection signal="pressed" from="Controls/VBox/HBoxContainer/SaveButton" to="." method="_on_save"]
+[connection signal="pressed" from="Controls/VBox/HBoxContainer/ResetButton" to="." method="_on_reset"]

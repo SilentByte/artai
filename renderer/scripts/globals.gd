@@ -9,6 +9,19 @@ var clip = true
 var aperture = 180.0
 var zoom = 1.0
 var rotation = 0.0
+var offset_x = 0.0
+var offset_y = 0.0
+
+func reset_config() -> void:
+    controls_visible = true
+    background_color = Color.black
+    fish_eye = true
+    clip = true
+    aperture = 180.0
+    zoom = 1.0
+    rotation = 0.0
+    offset_x = 0.0
+    offset_y = 0.0
 
 func save_config() -> void:
     var config = {
@@ -19,6 +32,8 @@ func save_config() -> void:
         "aperture": aperture,
         "zoom": zoom,
         "rotation": rotation,
+        "offset_x": offset_x,
+        "offset_y": offset_y,
     }
 
     var file = File.new()
@@ -27,16 +42,6 @@ func save_config() -> void:
     file.close()
 
 func load_config() -> void:
-    var default_config = {
-        "controls_visible": true,
-        "background_color": Color.black,
-        "fish_eye": true,
-        "clip": true,
-        "aperture": 180,
-        "zoom": 1.0,
-        "rotation": 0.0,
-    }
-
     var config = {}
     var file = File.new()
     if file.file_exists(CONFIG_FILE_NAME):
@@ -44,10 +49,13 @@ func load_config() -> void:
         config = file.get_var()
         file.close()
 
-    controls_visible = config.get("controls_visible", default_config["controls_visible"])
-    background_color = config.get("background_color", default_config["background_color"])
-    fish_eye = config.get("fish_eye", default_config["fish_eye"])
-    clip = config.get("clip", default_config["clip"])
-    aperture = config.get("aperture", default_config["aperture"])
-    zoom = config.get("zoom", default_config["zoom"])
-    rotation = config.get("rotation", default_config["rotation"])
+    reset_config()
+    controls_visible = config.get("controls_visible", controls_visible)
+    background_color = config.get("background_color", background_color)
+    fish_eye = config.get("fish_eye", fish_eye)
+    clip = config.get("clip", clip)
+    aperture = config.get("aperture", aperture)
+    zoom = config.get("zoom", zoom)
+    rotation = config.get("rotation", rotation)
+    offset_x = config.get("offset_x", offset_x)
+    offset_y = config.get("offset_y", offset_y)
