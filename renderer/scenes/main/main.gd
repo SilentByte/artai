@@ -58,8 +58,14 @@ func _process(delta: float) -> void:
     artai.rotation = deg2rad(Globals.rotation)
 
 func _unhandled_input(event: InputEvent) -> void:
+    if Input.is_action_just_pressed("ui_quit"):
+        get_tree().quit()
+        return
+
     if Input.is_action_just_pressed("ui_toggle_controls"):
         Globals.controls_visible = not Globals.controls_visible
+        return
+
 
 func _on_save() -> void:
     Globals.save_config()
