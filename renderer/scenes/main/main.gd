@@ -14,6 +14,9 @@ onready var aperture_slider = $Controls/VBox/ApertureSlider
 onready var zoom_label = $Controls/VBox/ZoomLabel
 onready var zoom_slider = $Controls/VBox/ZoomSlider
 
+onready var rotation_label = $Controls/VBox/RotationLabel
+onready var rotation_slider = $Controls/VBox/RotationSlider
+
 onready var offset_x_slider = $Controls/VBox/OffsetXSlider
 onready var offset_y_slider = $Controls/VBox/OffsetYSlider
 
@@ -42,11 +45,15 @@ func _process(delta: float) -> void:
     zoom_label.text = 'Zoom (%s)' % zoom_slider.value
     Globals.zoom = zoom_slider.value
 
+    rotation_label.text = 'Rotation (%s)' % rotation_slider.value
+    Globals.rotation = rotation_slider.value
+
     artai.scale = Vector2(Globals.zoom, Globals.zoom)
     artai.position = Vector2(
         offset_x_slider.value * 1920 + 1920 / 2,
         offset_y_slider.value * 1080 + 1080 / 2
     )
+    artai.rotation = deg2rad(Globals.rotation)
 
 func _unhandled_input(event: InputEvent) -> void:
     if Input.is_action_just_pressed("ui_toggle_controls"):

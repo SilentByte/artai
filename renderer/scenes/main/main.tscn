@@ -84,38 +84,55 @@ margin_bottom = 269.0
 min_value = 0.1
 max_value = 2.0
 step = 0.01
-value = 0.1
+value = 1.0
 
-[node name="OffsetXLabel" type="Label" parent="Controls/VBox"]
+[node name="RotationLabel" type="Label" parent="Controls/VBox"]
 margin_top = 276.0
 margin_right = 399.0
 margin_bottom = 305.0
+text = "Rotation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RotationSlider" type="HSlider" parent="Controls/VBox"]
+margin_top = 312.0
+margin_right = 399.0
+margin_bottom = 340.0
+min_value = -180.0
+max_value = 180.0
+step = 0.01
+
+[node name="OffsetXLabel" type="Label" parent="Controls/VBox"]
+margin_top = 347.0
+margin_right = 399.0
+margin_bottom = 376.0
 text = "Offset X"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="OffsetXSlider" type="HSlider" parent="Controls/VBox"]
-margin_top = 312.0
+margin_top = 383.0
 margin_right = 399.0
-margin_bottom = 340.0
+margin_bottom = 411.0
 min_value = -1.0
 max_value = 1.0
 step = 0.01
 
 [node name="OffsetYLabel" type="Label" parent="Controls/VBox"]
-margin_top = 347.0
+margin_top = 418.0
 margin_right = 399.0
-margin_bottom = 376.0
+margin_bottom = 447.0
 text = "Offset Y"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="OffsetYSlider" type="HSlider" parent="Controls/VBox"]
-margin_top = 383.0
+margin_top = 454.0
 margin_right = 399.0
-margin_bottom = 411.0
+margin_bottom = 482.0
 min_value = -1.0
 max_value = 1.0
 step = 0.01
@@ -124,6 +141,6 @@ __meta__ = {
 }
 
 [node name="ColorPicker" type="ColorPickerButton" parent="Controls/VBox"]
-margin_top = 418.0
+margin_top = 489.0
 margin_right = 399.0
-margin_bottom = 447.0
+margin_bottom = 518.0
