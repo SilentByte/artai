@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/artai/artai.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main/main.gd" type="Script" id=2]
+[ext_resource path="res://default_theme.tres" type="Theme" id=3]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -9,23 +10,21 @@ script = ExtResource( 2 )
 [node name="ArtAI" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960, 540 )
 
-[node name="Controls" type="MarginContainer" parent="."]
+[node name="Controls" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.941176 )
 margin_left = 1500.0
 margin_right = 1920.0
 margin_bottom = 1080.0
-custom_constants/margin_right = 16
-custom_constants/margin_top = 16
-custom_constants/margin_left = 16
-custom_constants/margin_bottom = 16
+theme = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBox" type="VBoxContainer" parent="Controls"]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 404.0
-margin_bottom = 1064.0
+margin_left = 10.5
+margin_top = 7.0
+margin_right = 409.5
+margin_bottom = 1073.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -33,88 +32,88 @@ __meta__ = {
 }
 
 [node name="FPSLabel" type="Label" parent="Controls/VBox"]
-margin_right = 388.0
-margin_bottom = 14.0
+margin_right = 399.0
+margin_bottom = 29.0
 text = "FPS"
 align = 2
 
 [node name="FishEyeSwitch" type="CheckButton" parent="Controls/VBox"]
-margin_top = 18.0
-margin_right = 388.0
-margin_bottom = 58.0
+margin_top = 36.0
+margin_right = 399.0
+margin_bottom = 78.0
 pressed = true
 text = "Fish Eye"
 
 [node name="ClipSwitch" type="CheckButton" parent="Controls/VBox"]
-margin_top = 62.0
-margin_right = 388.0
-margin_bottom = 102.0
+margin_top = 85.0
+margin_right = 399.0
+margin_bottom = 127.0
 pressed = true
 text = "Clip"
 
 [node name="ApertureLabel" type="Label" parent="Controls/VBox"]
-margin_top = 106.0
-margin_right = 388.0
-margin_bottom = 120.0
+margin_top = 134.0
+margin_right = 399.0
+margin_bottom = 163.0
 text = "Aperture"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ApertureSlider" type="HSlider" parent="Controls/VBox"]
-margin_top = 124.0
-margin_right = 388.0
-margin_bottom = 140.0
+margin_top = 170.0
+margin_right = 399.0
+margin_bottom = 198.0
 max_value = 360.0
 
 [node name="ZoomLabel" type="Label" parent="Controls/VBox"]
-margin_top = 144.0
-margin_right = 388.0
-margin_bottom = 158.0
+margin_top = 205.0
+margin_right = 399.0
+margin_bottom = 234.0
 text = "Zoom"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ZoomSlider" type="HSlider" parent="Controls/VBox"]
-margin_top = 162.0
-margin_right = 388.0
-margin_bottom = 178.0
+margin_top = 241.0
+margin_right = 399.0
+margin_bottom = 269.0
 min_value = 0.1
 max_value = 2.0
 step = 0.01
 value = 0.1
 
 [node name="OffsetXLabel" type="Label" parent="Controls/VBox"]
-margin_top = 182.0
-margin_right = 388.0
-margin_bottom = 196.0
+margin_top = 276.0
+margin_right = 399.0
+margin_bottom = 305.0
 text = "Offset X"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="OffsetXSlider" type="HSlider" parent="Controls/VBox"]
-margin_top = 200.0
-margin_right = 388.0
-margin_bottom = 216.0
+margin_top = 312.0
+margin_right = 399.0
+margin_bottom = 340.0
 min_value = -1.0
 max_value = 1.0
 step = 0.01
 
 [node name="OffsetYLabel" type="Label" parent="Controls/VBox"]
-margin_top = 220.0
-margin_right = 388.0
-margin_bottom = 234.0
+margin_top = 347.0
+margin_right = 399.0
+margin_bottom = 376.0
 text = "Offset Y"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="OffsetYSlider" type="HSlider" parent="Controls/VBox"]
-margin_top = 238.0
-margin_right = 388.0
-margin_bottom = 254.0
+margin_top = 383.0
+margin_right = 399.0
+margin_bottom = 411.0
 min_value = -1.0
 max_value = 1.0
 step = 0.01
