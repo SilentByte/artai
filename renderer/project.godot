@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="artai_renderer"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/main/main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Globals="*res://scripts/globals.gd"
 
 [display]
 

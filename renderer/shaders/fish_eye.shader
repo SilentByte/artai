@@ -1,6 +1,7 @@
 shader_type canvas_item;
 
 uniform float aperture = 180.0;
+uniform bool clip = true;
 
 const float PI = 3.14159265358979323846;
 
@@ -18,6 +19,7 @@ void fragment() {
         COLOR = texture(TEXTURE, vec2(r * cos(phi) + 0.5, r * sin(phi) + 0.5));
     }
     else {
-        COLOR.a = 0.0;
+        COLOR.rgb = texture(TEXTURE, UV).rgb;
+        COLOR.a = float(!clip);
     }
 }
