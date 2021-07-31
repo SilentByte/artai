@@ -82,8 +82,13 @@ func _unhandled_input(event: InputEvent) -> void:
         return
 
     if Input.is_action_just_pressed("ui_toggle_controls"):
-        Globals.controls_visible = not Globals.controls_visible
+        Globals.controls_visible = !Globals.controls_visible
         return
+
+    if Input.is_action_just_pressed("ui_toggle_full_screen"):
+        OS.window_borderless = !OS.window_borderless
+        OS.window_maximized = !OS.window_maximized
+        OS.set_window_size(OS.get_screen_size())
 
 func _on_save() -> void:
     Globals.save_config()
