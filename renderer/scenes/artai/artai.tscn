@@ -12,7 +12,6 @@ shader_param/clip = true
 [node name="ArtAI" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Content" type="Sprite" parent="."]
+[node name="Canvas" type="Sprite" parent="."]
 material = SubResource( 1 )
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
