@@ -26,75 +26,78 @@ onready var offset_y_slider = $Controls/VBox/OffsetYSlider
 onready var color_label = $Controls/VBox/ColorLabel
 onready var color_picker = $Controls/VBox/ColorPicker
 
-func _ready() -> void:
-    OS.set_window_title(Globals.TITLE)
 
-    Globals.load_config()
-    _reset()
+func _ready() -> void:
+	OS.set_window_title(Globals.TITLE)
+
+	Globals.load_config()
+	_reset()
+
 
 func _reset() -> void:
-    fish_eye_switch.pressed = Globals.fish_eye
-    clip_switch.pressed = Globals.clip
-    aperture_slider.value = Globals.aperture
-    zoom_slider.value = Globals.zoom
-    rotation_slider.value = Globals.rotation
-    offset_x_slider.value = Globals.offset_x
-    offset_y_slider.value = Globals.offset_y
-    color_picker.color = Globals.background_color
+	fish_eye_switch.pressed = Globals.fish_eye
+	clip_switch.pressed = Globals.clip
+	aperture_slider.value = Globals.aperture
+	zoom_slider.value = Globals.zoom
+	rotation_slider.value = Globals.rotation
+	offset_x_slider.value = Globals.offset_x
+	offset_y_slider.value = Globals.offset_y
+	color_picker.color = Globals.background_color
 
-func _process(delta: float) -> void:
-    controls_container.visible = Globals.controls_visible
 
-    fps_label.text = "%s FPS" % Engine.get_frames_per_second()
+func _process(_delta: float) -> void:
+	controls_container.visible = Globals.controls_visible
 
-    Globals.fish_eye = fish_eye_switch.pressed
-    Globals.clip = clip_switch.pressed
+	fps_label.text = "%s FPS" % Engine.get_frames_per_second()
 
-    aperture_label.text = "Aperture (%d°)" % aperture_slider.value
-    Globals.aperture = aperture_slider.value
+	Globals.fish_eye = fish_eye_switch.pressed
+	Globals.clip = clip_switch.pressed
 
-    zoom_label.text = "Zoom (%.2f)" % zoom_slider.value
-    Globals.zoom = zoom_slider.value
-    artai.scale = Vector2(Globals.zoom, Globals.zoom)
+	aperture_label.text = "Aperture (%d°)" % aperture_slider.value
+	Globals.aperture = aperture_slider.value
 
-    offset_x_label.text = "Offset X (%.2f)" % offset_x_slider.value
-    Globals.offset_x = offset_x_slider.value
+	zoom_label.text = "Zoom (%.2f)" % zoom_slider.value
+	Globals.zoom = zoom_slider.value
+	artai.scale = Vector2(Globals.zoom, Globals.zoom)
 
-    offset_y_label.text = "Offset Y (%.2f)" % offset_y_slider.value
-    Globals.offset_y = offset_y_slider.value
+	offset_x_label.text = "Offset X (%.2f)" % offset_x_slider.value
+	Globals.offset_x = offset_x_slider.value
 
-    artai.position = Vector2(
-        Globals.offset_x * 1920 + 1920 / 2,
-        Globals.offset_y * 1080 + 1080 / 2
-    )
+	offset_y_label.text = "Offset Y (%.2f)" % offset_y_slider.value
+	Globals.offset_y = offset_y_slider.value
 
-    rotation_label.text = "Rotation (%.2f)" % rotation_slider.value
-    Globals.rotation = rotation_slider.value
-    artai.rotation = deg2rad(Globals.rotation)
+	artai.position = Vector2(Globals.offset_x * 1920 + 1920 / 2, Globals.offset_y * 1080 + 1080 / 2)
 
-    color_label.text = "Background #(%s)" % color_picker.color.to_html(false)
-    Globals.background_color = color_picker.color
-    VisualServer.set_default_clear_color(Globals.background_color)
+	rotation_label.text = "Rotation (%.2f)" % rotation_slider.value
+	Globals.rotation = rotation_slider.value
+	artai.rotation = deg2rad(Globals.rotation)
 
-func _unhandled_input(event: InputEvent) -> void:
-    if Input.is_action_just_pressed("ui_quit"):
-        get_tree().quit()
-        return
+	color_label.text = "Background #(%s)" % color_picker.color.to_html(false)
+	Globals.background_color = color_picker.color
+	VisualServer.set_default_clear_color(Globals.background_color)
 
-    if Input.is_action_just_pressed("ui_toggle_controls"):
-        Globals.controls_visible = !Globals.controls_visible
-        return
 
-    if Input.is_action_just_pressed("ui_toggle_full_screen"):
-        OS.window_borderless = !OS.window_borderless
-        OS.window_maximized = !OS.window_maximized
-        OS.set_window_size(OS.get_screen_size())
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_quit"):
+		get_tree().quit()
+		return
+
+	if Input.is_action_just_pressed("ui_toggle_controls"):
+		Globals.controls_visible = ! Globals.controls_visible
+		return
+
+	if Input.is_action_just_pressed("ui_toggle_full_screen"):
+		OS.window_borderless = ! OS.window_borderless
+		OS.window_maximized = ! OS.window_maximized
+		OS.set_window_size(OS.get_screen_size())
+
 
 func _on_save() -> void:
-    Globals.save_config()
+	Globals.save_config()
+
 
 func _on_reset() -> void:
-    Globals.reset_config()
-    Globals.save_config()
+	Globals.reset_config()
+	Globals.save_config()
 
-    _reset()
+	_reset()
