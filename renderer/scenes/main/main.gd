@@ -17,9 +17,13 @@ onready var zoom_slider = $Controls/VBox/ZoomSlider
 onready var rotation_label = $Controls/VBox/RotationLabel
 onready var rotation_slider = $Controls/VBox/RotationSlider
 
+onready var offset_x_label = $Controls/VBox/OffsetXLabel
 onready var offset_x_slider = $Controls/VBox/OffsetXSlider
+
+onready var offset_y_label = $Controls/VBox/OffsetYLabel
 onready var offset_y_slider = $Controls/VBox/OffsetYSlider
 
+onready var color_label = $Controls/VBox/ColorLabel
 onready var color_picker = $Controls/VBox/ColorPicker
 
 func _ready() -> void:
@@ -39,31 +43,36 @@ func _reset() -> void:
 func _process(delta: float) -> void:
     controls_container.visible = Globals.controls_visible
 
-    Globals.background_color = color_picker.color
-    VisualServer.set_default_clear_color(Globals.background_color)
-
     fps_label.text = '%s FPS' % Engine.get_frames_per_second()
 
     Globals.fish_eye = fish_eye_switch.pressed
     Globals.clip = clip_switch.pressed
 
-    aperture_label.text = 'Aperture (%s)' % aperture_slider.value
+    aperture_label.text = 'Aperture (%d°)' % aperture_slider.value
     Globals.aperture = aperture_slider.value
 
-    zoom_label.text = 'Zoom (%s)' % zoom_slider.value
+    zoom_label.text = 'Zoom (%.2f)' % zoom_slider.value
     Globals.zoom = zoom_slider.value
     artai.scale = Vector2(Globals.zoom, Globals.zoom)
 
+    offset_x_label.text = 'Offset X (%.2f)' % offset_x_slider.value
     Globals.offset_x = offset_x_slider.value
+
+    offset_y_label.text = 'Offset Y (%.2f)' % offset_y_slider.value
     Globals.offset_y = offset_y_slider.value
+
     artai.position = Vector2(
         Globals.offset_x * 1920 + 1920 / 2,
         Globals.offset_y * 1080 + 1080 / 2
     )
 
-    rotation_label.text = 'Rotation (%s)' % rotation_slider.value
+    rotation_label.text = 'Rotation (%.2f)' % rotation_slider.value
     Globals.rotation = rotation_slider.value
     artai.rotation = deg2rad(Globals.rotation)
+
+    color_label.text = 'Background #(%s)' % color_picker.color.to_html(false)
+    Globals.background_color = color_picker.color
+    VisualServer.set_default_clear_color(Globals.background_color)
 
 func _unhandled_input(event: InputEvent) -> void:
     if Input.is_action_just_pressed("ui_quit"):
