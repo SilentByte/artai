@@ -27,6 +27,8 @@ onready var color_label = $Controls/VBox/ColorLabel
 onready var color_picker = $Controls/VBox/ColorPicker
 
 func _ready() -> void:
+    OS.set_window_title(Globals.TITLE)
+
     Globals.load_config()
     _reset()
 

@@ -1,5 +1,6 @@
 extends Node
 
+const TITLE = "Art愛"
 const CONFIG_FILE_NAME = ".artai_config"
 
 var controls_visible = true
