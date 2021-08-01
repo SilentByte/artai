@@ -1,14 +1,32 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/artai/artai.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main/main.gd" type="Script" id=2]
 [ext_resource path="res://default_theme.tres" type="Theme" id=3]
+[ext_resource path="res://shaders/glitch.shader" type="Shader" id=4]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 4 )
+shader_param/shake_enabled = false
+shader_param/shake_power = 0.005
+shader_param/shake_rate = 1.0
+shader_param/shake_speed = 5.0
+shader_param/shake_block_size = 96.0
+shader_param/shake_color_rate = 0.01
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="ArtAI" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960, 540 )
+
+[node name="ScreenShader" type="ColorRect" parent="."]
+material = SubResource( 2 )
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Controls" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0.941176 )
