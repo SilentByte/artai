@@ -17,11 +17,11 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Globals.fish_eye:
-		output.set_material(fish_eye_material)
-		output.get_material().set_shader_param("clip", Globals.clip)
-		output.get_material().set_shader_param("aperture", Globals.aperture)
+		output.material = fish_eye_material
+		output.material.set_shader_param("clip", Globals.clip)
+		output.material.set_shader_param("aperture", Globals.aperture)
 	else:
-		output.set_material(empty_material)
+		output.material = empty_material
 
 
 func _unhandled_input(event: InputEvent) -> void:
