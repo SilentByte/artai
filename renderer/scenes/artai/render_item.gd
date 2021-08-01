@@ -27,7 +27,7 @@ func animate(ttl: float, movement: Vector2, rotation: float, scale: float, smoot
 
 
 func _age() -> float:
-	return (OS.get_ticks_usec() - _start_time) / 1_000_000.0
+	return (OS.get_ticks_usec() - _start_time) / 1_000_000.0 / _ttl
 
 
 func _process(delta: float) -> void:
@@ -38,8 +38,9 @@ func _process(delta: float) -> void:
 	rotation_degrees += _rotation * delta
 	scale += Vector2(_scale * delta, _scale * delta)
 
-	self_modulate.a = fade_curve.interpolate(_age() / _ttl)
+	self_modulate.a = fade_curve.interpolate(_age())
 
 	_smooth_width -= clamp(delta * (1.0 / _ttl * _smooth_width_fraction), 0.0, 1.0)
 	_smooth_width = clamp(_smooth_width, 0.1, 0.5)
-	get_material().set_shader_param("smooth_width", _smooth_width)
+	material.set_shader_param("smooth_width", _smooth_width)
+	material.set_shader_param("saturation", -_age())

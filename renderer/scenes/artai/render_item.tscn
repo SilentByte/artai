@@ -8,6 +8,7 @@
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/smooth_width = 0.1
+shader_param/saturation = 0.0
 
 [node name="RenderItem" type="Sprite"]
 material = SubResource( 1 )
