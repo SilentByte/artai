@@ -70,7 +70,7 @@ func _process(_delta: float) -> void:
 
 	rotation_label.text = "Rotation (%.2f)" % rotation_slider.value
 	Globals.rotation = rotation_slider.value
-	artai.rotation = deg2rad(Globals.rotation)
+	artai.rotation_degrees = Globals.rotation
 
 	color_label.text = "Background #(%s)" % color_picker.color.to_html(false)
 	Globals.background_color = color_picker.color
@@ -83,7 +83,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 		return
 
 	if Input.is_action_just_pressed("ui_toggle_controls"):
-		Globals.controls_visible = ! Globals.controls_visible
+		Globals.controls_visible = not Globals.controls_visible
 		return
 
 	if Input.is_action_just_pressed("ui_toggle_full_screen"):

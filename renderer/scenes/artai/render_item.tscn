@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gfx/uv.png" type="Texture" id=1]
+[ext_resource path="res://scenes/artai/render_item.gd" type="Script" id=2]
+[ext_resource path="res://scenes/artai/shaders/render_item.shader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/smooth_width = 0.1
+
+[node name="RenderItem" type="Sprite"]
+material = SubResource( 1 )
+position = Vector2( 1, 0 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
