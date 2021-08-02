@@ -1,7 +1,22 @@
 extends Node2D
 
+class SpectrumAnalyzer:
+	var _peak = 0.0
+	var _volume = 0.0
+
+	func analyze(current_volume_db: float) -> float:
+		var current_volume = db2linear(current_volume_db)
+
+		_peak = lerp(_peak, current_volume, 0.1)
+		_volume = lerp(_volume, current_volume, 0.5)
+
+		return abs(_peak - _volume) / abs(_peak)
+
+
 onready var item_scene = preload("res://scenes/artai/render_item.tscn")
 onready var content = $Content
+onready var audio_spectrum = $AudioSpectrum
+var spectrum_analyzer = SpectrumAnalyzer.new()
 
 
 func _ready() -> void:
@@ -38,3 +53,9 @@ func _add_item() -> void:
 		item_scale,
 		item_smooth_width_fraction
 	)
+
+func _process(delta: float) -> void:
+	var peak_volume = AudioServer.get_bus_peak_volume_left_db(0, 0)
+	var amplitude = spectrum_analyzer.analyze(peak_volume)
+
+	audio_spectrum.material.set_shader_param("amplitude", amplitude)
