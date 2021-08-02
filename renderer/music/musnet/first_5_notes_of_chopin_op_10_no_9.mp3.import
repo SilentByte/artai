@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/first_5_notes_of_chopin_op_10_no_9.mp3-1af322b4a852b4ae739ab78bb0a1757b.mp3str"
+
+[deps]
+
+source_file="res://music/musnet/first_5_notes_of_chopin_op_10_no_9.mp3"
+dest_files=[ "res://.import/first_5_notes_of_chopin_op_10_no_9.mp3-1af322b4a852b4ae739ab78bb0a1757b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/first_6_notes_of_rachmaninoff.mp3-b869e6a778f4da9221e4d824a4b8d539.mp3str"
+
+[deps]
+
+source_file="res://music/musnet/first_6_notes_of_rachmaninoff.mp3"
+dest_files=[ "res://.import/first_6_notes_of_rachmaninoff.mp3-b869e6a778f4da9221e4d824a4b8d539.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

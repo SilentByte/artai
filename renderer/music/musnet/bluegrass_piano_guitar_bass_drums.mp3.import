@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bluegrass_piano_guitar_bass_drums.mp3-b5d96d20a475b06b717eba63d89de2f3.mp3str"
+
+[deps]
+
+source_file="res://music/musnet/bluegrass_piano_guitar_bass_drums.mp3"
+dest_files=[ "res://.import/bluegrass_piano_guitar_bass_drums.mp3-b5d96d20a475b06b717eba63d89de2f3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

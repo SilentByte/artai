@@ -12,6 +12,12 @@ var zoom = 1.0
 var rotation = 0.0
 var offset_x = 0.0
 var offset_y = 0.0
+var volume_db = 0.0
+
+
+func _ready() -> void:
+	randomize()
+	OS.set_window_title(Globals.TITLE)
 
 
 func reset_config() -> void:
@@ -24,6 +30,7 @@ func reset_config() -> void:
 	rotation = 0.0
 	offset_x = 0.0
 	offset_y = 0.0
+	volume_db = 0.0
 
 
 func save_config() -> void:
@@ -37,6 +44,7 @@ func save_config() -> void:
 		"rotation": rotation,
 		"offset_x": offset_x,
 		"offset_y": offset_y,
+		"volume_db": volume_db,
 	}
 
 	var file = File.new()
@@ -63,3 +71,4 @@ func load_config() -> void:
 	rotation = config.get("rotation", rotation)
 	offset_x = config.get("offset_x", offset_x)
 	offset_y = config.get("offset_y", offset_y)
+	volume_db = config.get("volume_db", volume_db)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bon_jovi_and_the_first_6_notes_of_chopin_op_27_no_2.mp3-ca67b8323206f99dbd69282895453057.mp3str"
+
+[deps]
+
+source_file="res://music/musnet/bon_jovi_and_the_first_6_notes_of_chopin_op_27_no_2.mp3"
+dest_files=[ "res://.import/bon_jovi_and_the_first_6_notes_of_chopin_op_27_no_2.mp3-ca67b8323206f99dbd69282895453057.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

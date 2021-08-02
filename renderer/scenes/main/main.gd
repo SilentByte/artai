@@ -26,10 +26,11 @@ onready var offset_y_slider = $Controls/VBox/OffsetYSlider
 onready var color_label = $Controls/VBox/ColorLabel
 onready var color_picker = $Controls/VBox/ColorPicker
 
+onready var volume_label = $Controls/VBox/VolumeLabel
+onready var volume_slider = $Controls/VBox/VolumeSlider
+
 
 func _ready() -> void:
-	OS.set_window_title(Globals.TITLE)
-
 	Globals.load_config()
 	_reset()
 
@@ -75,6 +76,9 @@ func _process(_delta: float) -> void:
 	color_label.text = "Background #(%s)" % color_picker.color.to_html(false)
 	Globals.background_color = color_picker.color
 	VisualServer.set_default_clear_color(Globals.background_color)
+
+	volume_label.text = "Volume (%.2fdb)" % volume_slider.value
+	Globals.volume_db = volume_slider.value
 
 
 func _unhandled_input(_event: InputEvent) -> void:

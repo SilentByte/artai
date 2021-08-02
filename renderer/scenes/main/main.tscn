@@ -5,7 +5,7 @@
 [ext_resource path="res://default_theme.tres" type="Theme" id=3]
 [ext_resource path="res://shaders/glitch.shader" type="Shader" id=4]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
 shader_param/shake_enabled = false
 shader_param/shake_power = 0.005
@@ -21,7 +21,7 @@ script = ExtResource( 2 )
 position = Vector2( 960, 540 )
 
 [node name="ScreenShader" type="ColorRect" parent="."]
-material = SubResource( 2 )
+material = SubResource( 1 )
 margin_right = 1920.0
 margin_bottom = 1080.0
 __meta__ = {
@@ -175,10 +175,30 @@ margin_right = 399.0
 margin_bottom = 585.0
 rect_min_size = Vector2( 0, 60 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Controls/VBox"]
+[node name="VolumeLabel" type="Label" parent="Controls/VBox"]
 margin_top = 592.0
 margin_right = 399.0
-margin_bottom = 652.0
+margin_bottom = 621.0
+text = "Volume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeSlider" type="HSlider" parent="Controls/VBox"]
+margin_top = 628.0
+margin_right = 399.0
+margin_bottom = 656.0
+min_value = -40.0
+max_value = 20.0
+step = 0.01
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls/VBox"]
+margin_top = 663.0
+margin_right = 399.0
+margin_bottom = 723.0
 rect_min_size = Vector2( 0, 60 )
 __meta__ = {
 "_edit_use_anchors_": false

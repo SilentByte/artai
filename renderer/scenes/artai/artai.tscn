@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://gfx/uv.png" type="Texture" id=1]
 [ext_resource path="res://shaders/fish_eye.shader" type="Shader" id=2]
 [ext_resource path="res://scenes/artai/artai.gd" type="Script" id=3]
 [ext_resource path="res://scenes/artai/renderer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/artai/ambient_music.gd" type="Script" id=5]
+[ext_resource path="res://music/musnet/first_6_notes_of_rachmaninoff.mp3" type="AudioStream" id=6]
+[ext_resource path="res://music/musnet/bon_jovi_and_the_first_6_notes_of_chopin_op_27_no_2.mp3" type="AudioStream" id=7]
+[ext_resource path="res://music/musnet/bluegrass_piano_guitar_bass_drums.mp3" type="AudioStream" id=8]
+[ext_resource path="res://music/musnet/first_5_notes_of_chopin_op_10_no_9.mp3" type="AudioStream" id=9]
+[ext_resource path="res://music/musnet/jazz_piano_bass_drums.mp3" type="AudioStream" id=10]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
@@ -25,3 +31,11 @@ render_target_v_flip = true
 
 [node name="Renderer" parent="Canvas" instance=ExtResource( 4 )]
 position = Vector2( 1024, 1024 )
+
+[node name="AmbientMusic" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = "Music"
+script = ExtResource( 5 )
+play_list = [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 10 ) ]
+
+[connection signal="finished" from="AmbientMusic" to="AmbientMusic" method="_on_finished"]

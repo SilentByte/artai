@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jazz_piano_bass_drums.mp3-e59c556abf2f697b835c06efb96deea6.mp3str"
+
+[deps]
+
+source_file="res://music/musnet/jazz_piano_bass_drums.mp3"
+dest_files=[ "res://.import/jazz_piano_bass_drums.mp3-e59c556abf2f697b835c06efb96deea6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
