@@ -5,7 +5,7 @@
 
 shader_type canvas_item;
 
-uniform bool shake_enabled = false;
+uniform bool shake_enabled = true;
 uniform float shake_power = 0.005;
 uniform float shake_rate : hint_range(0.0, 1.0) = 1;
 uniform float shake_speed = 5.0;

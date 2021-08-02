@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "CuratorItem",
 "language": "GDScript",
 "path": "res://scripts/curator_item.gd"
+}, {
+"base": "Reference",
+"class": "SpectrumAnalyzer",
+"language": "GDScript",
+"path": "res://scripts/spectrum_analzyer.gd"
 } ]
 _global_script_class_icons={
-"CuratorItem": ""
+"CuratorItem": "",
+"SpectrumAnalyzer": ""
 }
 
 [application]
