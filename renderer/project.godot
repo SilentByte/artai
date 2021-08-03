@@ -26,7 +26,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="artai_renderer"
+config/name="Art愛"
 run/main_scene="res://scenes/main/main.tscn"
 boot_splash/image="res://splash.png"
 boot_splash/bg_color=Color( 0.215686, 0.211765, 0.239216, 1 )

@@ -1,6 +1,5 @@
 extends Node
 
-const TITLE = "Art愛"
 const CONFIG_FILE_NAME = ".artai_config"
 
 var controls_visible = true
@@ -17,7 +16,6 @@ var volume_db = 0.0
 
 func _ready() -> void:
 	randomize()
-	OS.set_window_title(Globals.TITLE)
 
 
 func reset_config() -> void:
