@@ -24,6 +24,7 @@ class JobModel(BaseModel):
 class JobInput(BaseModel):
     author: str
     prompt: str
+    twitter_json: str
 
 
 class JobQuery(BaseModel):
@@ -42,7 +43,8 @@ class Repository:
                     author          TEXT NOT NULL,
                     prompt          TEXT NOT NULL,
                     created_on      TEXT NOT NULL,
-                    completed_on    TEXT NULL
+                    completed_on    TEXT NULL,
+                    twitter_json    TEXT NOT NULL
                 );
             ''')
 
@@ -65,8 +67,8 @@ class Repository:
 
         with self._db:
             self._db.execute('''
-                INSERT INTO job (id, author, prompt, created_on) VALUES (?, ?, ?, ?)
-            ''', [str(model.id), model.author, model.prompt, model.created_on.isoformat()])
+                INSERT INTO job (id, author, prompt, created_on, twitter_json) VALUES (?, ?, ?, ?, ?)
+            ''', [str(model.id), model.author, model.prompt, model.created_on.isoformat(), job.twitter_json])
 
         return model
 
