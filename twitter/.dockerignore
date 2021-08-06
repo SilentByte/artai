@@ -2,4 +2,3 @@ __pycache__
 venv
 .idea
 .env
-artai.sqlite
