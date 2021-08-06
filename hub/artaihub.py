@@ -2,15 +2,20 @@
 ArtAI -- An Generative Art Project using Artificial Intelligence
 Copyright (c) 2021 SilentByte <https://silentbyte.com/>
 """
-
+import os
 import sqlite3
 
 from typing import Optional, List
 from uuid import UUID, uuid4
 from datetime import datetime
 
+from dotenv import load_dotenv
 from fastapi import FastAPI, status
 from pydantic import BaseModel
+
+load_dotenv()
+
+ARTAI_DB_FILE_NAME = os.environ['ARTAI_DB_FILE_NAME']
 
 
 class JobModel(BaseModel):
@@ -106,7 +111,7 @@ class Repository:
 
 
 app = FastAPI()
-repo = Repository('artai.sqlite')
+repo = Repository(ARTAI_DB_FILE_NAME)
 
 
 @app.get('/jobs')

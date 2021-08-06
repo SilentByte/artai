@@ -1,6 +1,5 @@
-__pycache__
-.idea
-venv
 
+__pycache__
+venv
+.idea
 .env
-artai.sqlite
