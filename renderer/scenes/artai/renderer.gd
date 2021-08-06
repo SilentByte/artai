@@ -23,8 +23,8 @@ func _add_item() -> void:
 	item.position.x += rand_range(-256, 256)
 	item.position.y += rand_range(-256, 256)
 	item.rotation_degrees += rand_range(-180, 180)
-	item.scale = Vector2(1.5, 1.5)
 	item.texture = Curator.next().texture
+	item.scale = Vector2(1024 / item.texture.get_width(), 1024 / item.texture.get_height())
 
 	var item_ttl = rand_range(20, 40)
 	var item_movement = Vector2(rand_range(-64, 64), rand_range(-64, 64))

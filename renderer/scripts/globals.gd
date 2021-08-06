@@ -12,6 +12,7 @@ var rotation = 0.0
 var offset_x = 0.0
 var offset_y = 0.0
 var volume_db = 0.0
+var art_dir = ""
 
 
 func _ready() -> void:
@@ -29,6 +30,7 @@ func reset_config() -> void:
 	offset_x = 0.0
 	offset_y = 0.0
 	volume_db = 0.0
+	art_dir = "../data/art"
 
 
 func save_config() -> void:
@@ -43,6 +45,7 @@ func save_config() -> void:
 		"offset_x": offset_x,
 		"offset_y": offset_y,
 		"volume_db": volume_db,
+		"art_dir": art_dir,
 	}
 
 	var file = File.new()
@@ -60,6 +63,7 @@ func load_config() -> void:
 		file.close()
 
 	reset_config()
+
 	controls_visible = config.get("controls_visible", controls_visible)
 	background_color = config.get("background_color", background_color)
 	fish_eye = config.get("fish_eye", fish_eye)
@@ -70,3 +74,4 @@ func load_config() -> void:
 	offset_x = config.get("offset_x", offset_x)
 	offset_y = config.get("offset_y", offset_y)
 	volume_db = config.get("volume_db", volume_db)
+	art_dir = config.get("art_dir", art_dir)

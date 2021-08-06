@@ -29,6 +29,9 @@ onready var color_picker = $Controls/VBox/ColorPicker
 onready var volume_label = $Controls/VBox/VolumeLabel
 onready var volume_slider = $Controls/VBox/VolumeSlider
 
+onready var art_dir_label = $Controls/VBox/ArtDirLabel
+onready var art_dir_line_edit = $Controls/VBox/ArtDirLineEdit
+
 
 func _ready() -> void:
 	Globals.load_config()
@@ -44,6 +47,8 @@ func _reset() -> void:
 	offset_x_slider.value = Globals.offset_x
 	offset_y_slider.value = Globals.offset_y
 	color_picker.color = Globals.background_color
+	volume_slider.value = Globals.volume_db
+	art_dir_line_edit.text = Globals.art_dir
 
 
 func _process(_delta: float) -> void:
@@ -79,6 +84,8 @@ func _process(_delta: float) -> void:
 
 	volume_label.text = "Volume (%.2fdb)" % volume_slider.value
 	Globals.volume_db = volume_slider.value
+
+	Globals.art_dir = art_dir_line_edit.text
 
 
 func _unhandled_input(_event: InputEvent) -> void:

@@ -197,10 +197,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Controls/VBox"]
+[node name="ArtDirLabel" type="Label" parent="Controls/VBox"]
 margin_top = 663.0
 margin_right = 399.0
-margin_bottom = 723.0
+margin_bottom = 692.0
+text = "Art Directory"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArtDirLineEdit" type="LineEdit" parent="Controls/VBox"]
+margin_top = 699.0
+margin_right = 399.0
+margin_bottom = 728.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls/VBox"]
+margin_top = 735.0
+margin_right = 399.0
+margin_bottom = 795.0
 rect_min_size = Vector2( 0, 60 )
 __meta__ = {
 "_edit_use_anchors_": false

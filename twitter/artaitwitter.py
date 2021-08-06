@@ -72,13 +72,22 @@ class ArtAIStreamListener(tweepy.StreamListener):
         log.error('Error occurred with status %s', status_code)
 
 
-auth = tweepy.OAuthHandler(ARTAI_TWITTER_CONSUMER_KEY, ARTAI_TWITTER_CONSUMER_SECRET)
-auth.set_access_token(ARTAI_TWITTER_ACCESS_TOKEN, ARTAI_TWITTER_ACCESS_SECRET)
+def start_stream_listener() -> None:
+    auth = tweepy.OAuthHandler(ARTAI_TWITTER_CONSUMER_KEY, ARTAI_TWITTER_CONSUMER_SECRET)
+    auth.set_access_token(ARTAI_TWITTER_ACCESS_TOKEN, ARTAI_TWITTER_ACCESS_SECRET)
 
-stream = tweepy.Stream(
-    auth=auth,
-    listener=ArtAIStreamListener(),
-)
+    stream = tweepy.Stream(
+        auth=auth,
+        listener=ArtAIStreamListener(),
+    )
 
-log.info('Starting stream, listening for %s', ARTAI_FILTER_KEYWORDS)
-stream.filter(track=ARTAI_FILTER_KEYWORDS)
+    log.info('Starting stream, listening for %s', ARTAI_FILTER_KEYWORDS)
+    stream.filter(track=ARTAI_FILTER_KEYWORDS)
+
+
+if __name__ == '__main__':
+    while True:
+        try:
+            start_stream_listener()
+        except Exception as e:
+            log.exception("Twitter stream listener crashed", exc_info=e)
