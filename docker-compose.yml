@@ -1,0 +1,35 @@
+
+version: "3.9"
+
+services:
+    hub:
+        build: hub
+
+        ports:
+            - "8000:8000"
+
+        volumes:
+            - ./data/:/app/data/
+
+        networks:
+            - artai
+
+    twitter:
+        build: twitter
+
+        depends_on:
+            - hub
+
+        environment:
+            - ARTAI_HUB_ENDPOINT_URL
+            - ARTAI_FILTER_KEYWORDS
+            - ARTAI_TWITTER_CONSUMER_KEY
+            - ARTAI_TWITTER_CONSUMER_SECRET
+            - ARTAI_TWITTER_ACCESS_TOKEN
+            - ARTAI_TWITTER_ACCESS_SECRET
+
+        networks:
+            - artai
+
+networks:
+    artai:

@@ -2,6 +2,7 @@
 ArtAI -- An Generative Art Project using Artificial Intelligence
 Copyright (c) 2021 SilentByte <https://silentbyte.com/>
 """
+
 import os
 import sqlite3
 
@@ -15,7 +16,7 @@ from pydantic import BaseModel
 
 load_dotenv()
 
-ARTAI_DB_FILE_NAME = os.environ['ARTAI_DB_FILE_NAME']
+ARTAI_DATA_DIR = os.getenv('ARTAI_DATA_DIR', '/app/data')
 
 
 class JobModel(BaseModel):
@@ -111,7 +112,7 @@ class Repository:
 
 
 app = FastAPI()
-repo = Repository(ARTAI_DB_FILE_NAME)
+repo = Repository(os.path.join(ARTAI_DATA_DIR, 'artai.sqlite'))
 
 
 @app.get('/jobs')

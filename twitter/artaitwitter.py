@@ -19,10 +19,10 @@ load_dotenv()
 ARTAI_HUB_ENDPOINT_URL = os.environ['ARTAI_HUB_ENDPOINT_URL'].rstrip('/')
 ARTAI_FILTER_KEYWORDS = os.environ['ARTAI_FILTER_KEYWORDS'].split(',')
 
-TWITTER_CONSUMER_KEY = os.environ['TWITTER_CONSUMER_KEY']
-TWITTER_CONSUMER_SECRET = os.environ['TWITTER_CONSUMER_SECRET']
-TWITTER_ACCESS_TOKEN = os.environ['TWITTER_ACCESS_TOKEN']
-TWITTER_ACCESS_SECRET = os.environ['TWITTER_ACCESS_SECRET']
+ARTAI_TWITTER_CONSUMER_KEY = os.environ['ARTAI_TWITTER_CONSUMER_KEY']
+ARTAI_TWITTER_CONSUMER_SECRET = os.environ['ARTAI_TWITTER_CONSUMER_SECRET']
+ARTAI_TWITTER_ACCESS_TOKEN = os.environ['ARTAI_TWITTER_ACCESS_TOKEN']
+ARTAI_TWITTER_ACCESS_SECRET = os.environ['ARTAI_TWITTER_ACCESS_SECRET']
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
@@ -72,8 +72,8 @@ class ArtAIStreamListener(tweepy.StreamListener):
         log.error('Error occurred with status %s', status_code)
 
 
-auth = tweepy.OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
-auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET)
+auth = tweepy.OAuthHandler(ARTAI_TWITTER_CONSUMER_KEY, ARTAI_TWITTER_CONSUMER_SECRET)
+auth.set_access_token(ARTAI_TWITTER_ACCESS_TOKEN, ARTAI_TWITTER_ACCESS_SECRET)
 
 stream = tweepy.Stream(
     auth=auth,
