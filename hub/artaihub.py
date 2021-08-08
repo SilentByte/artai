@@ -95,9 +95,9 @@ class Repository:
                 SELECT id, author, prompt, created_on, completed_on
                 FROM job
                 WHERE CASE WHEN ? THEN completed_on IS NOT NULL ELSE completed_on IS NULL END
-                ORDER BY created_on DESC
+                ORDER BY CASE WHEN ? THEN completed_on ELSE created_on END DESC
                 LIMIT ?
-            ''', [int(completed), limit])
+            ''', [int(completed), int(completed), limit])
 
             return [
                 JobModel(

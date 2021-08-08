@@ -2,4 +2,5 @@
 exports/
 .import/
 .artai_config
+artai.x86_64
 
