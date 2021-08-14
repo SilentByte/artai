@@ -3,6 +3,8 @@ extends Node2D
 onready var item_scene = preload("res://scenes/artai/render_item.tscn")
 onready var content = $Content
 onready var audio_spectrum = $AudioSpectrum
+onready var timer = $Timer
+
 var spectrum_analyzer = SpectrumAnalyzer.new()
 
 
@@ -10,10 +12,11 @@ func _ready() -> void:
 	if get_tree().get_current_scene().get_name() == "Renderer":
 		$DebugCamera.current = true
 
-	# TODO: IMPLEMENT.
-	for i in range(10000):
-		_add_item()
-		yield(get_tree().create_timer(5), "timeout")
+	_add_item()
+	_add_item()
+	_add_item()
+
+	timer.start()
 
 
 func _add_item() -> void:
@@ -46,3 +49,7 @@ func _process(delta: float) -> void:
 	var amplitude = spectrum_analyzer.analyze(peak_volume)
 
 	audio_spectrum.material.set_shader_param("amplitude", amplitude)
+
+
+func _on_timeout() -> void:
+	_add_item()

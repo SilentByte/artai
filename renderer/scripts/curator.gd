@@ -4,40 +4,7 @@ const QUERY_ENDPOINT_URL = "http://127.0.0.1:8000/jobs"
 const QUERY_INTERVAL = 2.0
 const CURATION_SIZE = 20
 
-var _default_art_textures = [
-	"res://gfx/default_art/01.jpg",
-	"res://gfx/default_art/02.jpg",
-	"res://gfx/default_art/03.jpg",
-	"res://gfx/default_art/04.jpg",
-	"res://gfx/default_art/05.jpg",
-	"res://gfx/default_art/06.jpg",
-	"res://gfx/default_art/07.jpg",
-	"res://gfx/default_art/08.jpg",
-	"res://gfx/default_art/09.jpg",
-	"res://gfx/default_art/10.jpg",
-	"res://gfx/default_art/11.jpg",
-	"res://gfx/default_art/12.jpg",
-	"res://gfx/default_art/13.jpg",
-	"res://gfx/default_art/14.jpg",
-	"res://gfx/default_art/15.jpg",
-	"res://gfx/default_art/16.jpg",
-	"res://gfx/default_art/17.jpg",
-	"res://gfx/default_art/18.jpg",
-	"res://gfx/default_art/19.jpg",
-	"res://gfx/default_art/20.jpg",
-	"res://gfx/default_art/21.jpg",
-	"res://gfx/default_art/22.jpg",
-	"res://gfx/default_art/23.jpg",
-	"res://gfx/default_art/24.jpg",
-	"res://gfx/default_art/25.jpg",
-	"res://gfx/default_art/26.jpg",
-	"res://gfx/default_art/27.jpg",
-	"res://gfx/default_art/28.jpg",
-	"res://gfx/default_art/29.jpg",
-	"res://gfx/default_art/30.jpg",
-	"res://gfx/default_art/31.jpg",
-	"res://gfx/default_art/32.jpg",
-]
+var _default_art_textures = []
 
 var _client: HTTPRequest = null
 var _query_timer: Timer = null
@@ -47,6 +14,9 @@ var _curated_items = []
 
 
 func _ready() -> void:
+	for i in range(88):
+		_default_art_textures.append("res://gfx/default_art/%02d.jpg" % [i + 1])
+
 	_client = HTTPRequest.new()
 	_client.connect("request_completed", self, "_on_request_completed")
 	add_child(_client)
