@@ -53,7 +53,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FPSLabel" type="Label" parent="Controls/VBox"]
+[node name="HeaderHBox" type="HBoxContainer" parent="Controls/VBox"]
+margin_right = 399.0
+margin_bottom = 29.0
+
+[node name="ControlsLabel" type="Label" parent="Controls/VBox/HeaderHBox"]
+margin_right = 359.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+text = "Controls (Toggle with F12)"
+
+[node name="FPSLabel" type="Label" parent="Controls/VBox/HeaderHBox"]
+margin_left = 366.0
 margin_right = 399.0
 margin_bottom = 29.0
 text = "FPS"
@@ -214,7 +225,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Controls/VBox"]
+[node name="ConfigHBox" type="HBoxContainer" parent="Controls/VBox"]
 margin_top = 735.0
 margin_right = 399.0
 margin_bottom = 795.0
@@ -223,18 +234,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SaveButton" type="Button" parent="Controls/VBox/HBoxContainer"]
+[node name="SaveButton" type="Button" parent="Controls/VBox/ConfigHBox"]
 margin_right = 292.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 text = "SAVE"
 
-[node name="ResetButton" type="Button" parent="Controls/VBox/HBoxContainer"]
+[node name="ResetButton" type="Button" parent="Controls/VBox/ConfigHBox"]
 margin_left = 299.0
 margin_right = 399.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 100, 0 )
 text = "RESET"
 
-[connection signal="pressed" from="Controls/VBox/HBoxContainer/SaveButton" to="." method="_on_save"]
-[connection signal="pressed" from="Controls/VBox/HBoxContainer/ResetButton" to="." method="_on_reset"]
+[connection signal="pressed" from="Controls/VBox/ConfigHBox/SaveButton" to="." method="_on_save"]
+[connection signal="pressed" from="Controls/VBox/ConfigHBox/ResetButton" to="." method="_on_reset"]

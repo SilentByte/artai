@@ -3,7 +3,7 @@ extends Node2D
 onready var artai = $ArtAI
 onready var controls_container = $Controls
 
-onready var fps_label = $Controls/VBox/FPSLabel
+onready var fps_label = $Controls/VBox/HeaderHBox/FPSLabel
 
 onready var fish_eye_switch = $Controls/VBox/FishEyeSwitch
 onready var clip_switch = $Controls/VBox/ClipSwitch
