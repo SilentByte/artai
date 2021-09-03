@@ -44,7 +44,7 @@ while True:
 
         job = data[0]
         id = job['id']
-        prompt = job['prompt']
+        prompt = job['prompt'].replace(':', '')
 
         log.info("Generating %s %s", id, prompt)
         subprocess.check_call(['./generate.sh', ARTAI_GEN_TMP_FILE, prompt, ARTAI_GEN_SIZE, ARTAI_GEN_ITERATIONS])
