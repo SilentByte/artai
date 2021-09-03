@@ -20,7 +20,7 @@ then
     exit 1
 fi
 
-python artaigen.py \
+python generate.py \
        -o "$ARTAI_GEN_OUTPUT" \
        -p "$ARTAI_GEN_PROMPT" \
        -s "$ARTAI_GEN_SIZE" "$ARTAI_GEN_SIZE" \
