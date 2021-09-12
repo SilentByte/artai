@@ -21,7 +21,7 @@ Artæ„› is a combination of the English word "Art" with the Chinese character "æ„
 
 ## Inspiration
 
-Digital art is growing more popular at a rapid pace, including generative art using neural networks and machine learning. We wanted to create something that is unique, dynamic, and allows for audience-participation. As our team consits of a software engineer and an artist, this hackathon was a great opportunity for interdisciplinary collaboration and we considered this project as our personal challenge to learn more about each other's field of work.
+Digital art is growing more popular at a rapid pace, including generative art using neural networks and machine learning. We wanted to create something that is unique, dynamic, and allows for audience-participation. As our team consists of a software engineer and an artist, this hackathon was a great opportunity for interdisciplinary collaboration and we considered this project as our personal challenge to learn more about each other's field of work.
 
 
 ## What it does
@@ -66,7 +66,7 @@ The Generator ([view source](https://github.com/SilentByte/artai/tree/master/gen
 
 The Curator ([view source](https://github.com/SilentByte/artai/tree/master/renderer)) is the most complex component of this project. It is responsible for the rendering of the real-time graphics, and works not unlike a video game. It has been created using the amazing open-source [Godot Game Engine](https://godotengine.org).
 
-We employ a variety of techniques to achieve the desired effects. Images are loaded dynamically as soon as they have been generated from a user's tweet and then are seemlessly combined with other images already being displayed through fading, color effects, and blending. We also make heavy use of shaders to add additional effects such as distortions that align with the music through spectrum analysis.
+We employ a variety of techniques to achieve the desired effects. Images are loaded dynamically as soon as they have been generated from a user's tweet and then are seamlessly combined with other images already being displayed through fading, color effects, and blending. We also make heavy use of shaders to add additional effects such as distortions that align with the music through spectrum analysis.
 
 Ultimately, once a frame has been curated, it will be transformed into a sphere using a fish-eye shader. This allows us to reduce distortion when projecting the scene onto a spherical display surface.
 
