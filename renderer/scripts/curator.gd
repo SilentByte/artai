@@ -48,6 +48,10 @@ func _check_has_id(id: String) -> bool:
 	return false
 
 func _query() -> void:
+	if OS.get_name() == 'HTML5':
+		print("Skipping query (HTML5)...")
+		return
+
 	if not _can_request:
 		print("Skipping query (busy)...")
 		return
