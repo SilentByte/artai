@@ -7,7 +7,9 @@
 
 # Art愛 / ArtAI
 
-[ArtAI](https://artai.silentbyte.com) is an interactive art installation that collects people's ideas in real-time from social media and uses deep learning and AI art generation to curate these ideas into a dynamic display. This repository represents our submission for the [SAAI Factory - Hackathon on Art and AI](https://saai.devpost.com/).
+[ArtAI](https://artai.silentbyte.com) is an interactive art installation that collects people's ideas in real-time from social media and uses deep learning and AI art generation to curate these ideas into a dynamic display. This repository represents our submission for the [SAAI Factory - Hackathon on Art and AI](https://devpost.com/software/art-artai).
+
+The project page [can be found here](https://devpost.com/software/art-artai).
 
 An online demo is [available here](https://artai.silentbyte.com).
 
