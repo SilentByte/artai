@@ -13,6 +13,8 @@ The project page [can be found here](https://devpost.com/software/art-artai).
 
 An online demo is [available here](https://artai.silentbyte.com).
 
+Watch a video of the [art installation on YouTube](https://www.youtube.com/watch?v=kDFc27o_D-8).
+
 Follow us on Twitter: [@RicoBeti](https://twitter.com/RicoBeti), [@sulu35619916](https://twitter.com/sulu35619916).
 
 
